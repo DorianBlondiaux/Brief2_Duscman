@@ -10,76 +10,67 @@
 </head>
 
 <body>
-  <div class="side_bar">
-    <nav>
+  <div class="wrapper">
+    <aside>
       <header class="header">
+
         <h1 class="logo">Ducsman</h1>
-        <h2 class="slogan">Sapés comme jamais.</h2>
+        <h2 class="slogan"> Sapés comme jamais. <h2>
+
       </header>
-      <div class="menu">
-        <ul>
+      <nav>
+        <ul class="menu">
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Costume</a>
+            <button class="bouton_categorie active"><i class="fa-solid fa-caret-right"></i>Costume</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Robe</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Robe</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Chemise</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Chemise</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Jupe</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Jupe</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Veste</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Veste</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Pantalon</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Pantalon</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Blouse</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Blouse</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Manteau</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Manteau</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Cravate</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Cravate</button>
           </li>
           <li>
-            <i class="fa-solid fa-caret-right"></i>
-            <a href="" class="lien_categorie">Chaussures</a>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Chaussures</button>
           </li>
+          <li class="bouton_panier">
+            <a class="bouton_panier_lien" href="">
+              <i class="fa-solid fa-cart-shopping"></i>Panier
+              <span class="compteur">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <footer class="footer_nav">
+        <p class="texte_footer">© 2023 Ducsman </p>
+      </footer>
+    </aside>
+    <main>
+      <h2 class="titre_principal">Tous les articles</h2>
+      <div class="valise_items">
+        
+        <div id="card" class="card-body"></div>
+
       </div>
-    </nav>
-    <div class="panier_navbar">
-      <a href="">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <p>Panier</p>
-      </a>
-      <input class="compteur" type="text">
-    </div>
-    <footer class="footer_nav">
-      <p>© 2023 Ducsman </p>
-    </footer>
+    </main>
   </div>
-
-  <main>
-      <div id="card" class="card-body">
-
-      </div>
-    </div>
-
-  </main>
-
 
   <script src="scripts.js"></script>
 </body>
