@@ -2,46 +2,101 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Maitree:wght@300&family=Space+Mono&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
-    height: 100vh;
+    grid-template-columns: 1fr 5fr;
+    width: 100%;
+    height: 99vh;
 }
-.side_bar{
+
+.side_bar {
     display: flex;
     flex-direction: column;
     position: sticky;
     justify-content: space-between;
     padding: 2%;
+    height: 95vh;
+    background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
 }
-.logo  {
-    font-family: italianno;
-    font-size: 4rem;
-    
-}
-.header{
+
+.header {
     display: flex;
     flex-direction: column;
+    color: #ffff;
+    padding-left: 5%;
     
-    justify-content: center;
 }
-.slogan{
+.logo {
+    font-family: italianno;
+    font-size: 4rem;
+    font-weight: 100;
+    border: 1px solid red;
+    margin-bottom: 0%;
+}
+
+.slogan {
     font-family: 'Amiri';
     font-style: italic;
     font-size: 1.2rem;
-
+    font-weight: 100;
+    border: 1px solid red;
 }
-.side_bar a{
+
+.menu {
+    font-family: 'Amiri';
+    font-style: italic;
+    padding-left: 25%;
+    font-size: 1.5rem;
+    color: #ffff;
+    margin-top: 20%;
+    
+}
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.side_bar a {
     text-decoration: none;
+    color: #ffff;
+    display: inline-flex;
+    gap: 10%;
 }
-.menu{
-    font-family: '';
+.side_bar a:hover {
+    color: #cdcdcd;
 }
+.panier_navbar{
+    display: inline-flex;
+    gap: 5%;
+    font-family: 'Amiri';
+    font-style: italic;
+    font-size: 1.5rem;
+    justify-content: center;
+    color:#ffff;
+}
+.panier_navbar i{
+    padding-top: 5%;
+}
+.compteur{
+    width: 8%;
+    height: 65%;
+    margin-left: 2%;
 
+}
+.footer_nav{
+    text-align: center;
+    font-family: 'Amiri';
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #5d73b0;
+}
 
 
