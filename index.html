@@ -14,17 +14,16 @@
     <nav>
       <img class="logo" src="" alt="">
       <div class="menu">
-        <ul>
-          <li><a href="" class="lien_categorie">Costume</a></li>
-          <li><a href="" class="lien_categorie">Robe</a></li>
-          <li><a href="" class="lien_categorie">Chemise</a></li>
-          <li><a href="" class="lien_categorie">Jupe</a></li>
-          <li><a href="" class="lien_categorie">Veste</a></li>
-          <li><a href="" class="lien_categorie">Pantalon</a></li>
-          <li><a href="" class="lien_categorie">Blouse</a></li>
-          <li><a href="" class="lien_categorie">Manteau</a></li>
-          <li><a href="" class="lien_categorie">Cravate</a></li>
-          <li><a href="" class="lien_categorie">Chaussures</a></li>
+        <ul id="">
+          <li onclick="displayOneArticle('costume')" id="costume" class="lien_categorie">Costume</a></li>
+          <li onclick="displayOneArticle('robe')" id="robe" class="lien_categorie">Robe</li>
+          <li onclick="displayOneArticle('chemise')" id="chemise" class="lien_categorie">Chemise</li>
+          <li onclick="displayOneArticle('jupe')" id="jupe" class="lien_categorie">Jupe</li>
+          <li onclick="displayOneArticle('manteau')" id="manteau" class="lien_categorie">Manteau</li>
+          <li onclick="displayOneArticle('pantalon')" id="pantalon" class="lien_categorie">Pantalon</li>
+          <li onclick="displayOneArticle('blouse')" id="blouse" class="lien_categorie">Blouse</li>
+          <li onclick="displayOneArticle('cravate')" id="cravate" class="lien_categorie">Cravate</li>
+          <li onclick="displayOneArticle('chaussure')" id="chaussure" class="lien_categorie">Chaussures</li>
       </div>
       <div>
         <i class="fa-solid fa-cart-shopping"><a href="">Panier</a></i>
@@ -36,10 +35,7 @@
   </div>
 
   <main>
-    <div class="card_item" style="width: 18rem;">
-      <div id="card" class="card-body">
-        <a href="#" class="btn btn-primary">Ajouter</a>
-      </div>
+    <div id="card" class="card_item" style="width: 18rem;">
     </div>
 
   </main>
