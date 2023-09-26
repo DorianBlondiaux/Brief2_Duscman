@@ -115,22 +115,3 @@ function chargerPanier() {
 function ajouterArticle(id) {
   listeIdArticles.push(id);
 }
-/*
-function chargerPanier() {
-  document.getElementById("main").innerHTML = panierHtml;
-  listeIdArticles.forEach((id) => {
-    document.getElementById("main").insertAdjacentHTML(
-      "beforeend",
-      ` 
-        <div class="card-body">
-        <img src="https://placehold.co/600x400" class="img_item" alt="...">
-        <h5>Nom: ${jsonArticles.articles[id].nom}</h5>
-        <p>Prix: ${jsonArticles.articles[id].prix}</p>
-        <p>${jsonArticles.articles[id].designation}</p>
-        <p class="categorie">${jsonArticles.articles[id].categorie}</p>
-        </div>
-        
-        `
-    );
-  });
-} */
