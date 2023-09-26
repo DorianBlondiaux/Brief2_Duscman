@@ -16,7 +16,7 @@ let panierHtml = `<h1>Panier</h1>
 
   </section>
   <section class="quantiteArticle">
-    <p class="intitule">Quantité</p>
+    <p id="quantite" class="intitule">Quantité</p>
 
   </section>
   <section class="prixArticle">
@@ -24,7 +24,7 @@ let panierHtml = `<h1>Panier</h1>
 
   </section>
   <section class="totalArticle">
-    <p class="intitule">Subtotal</p>
+    <p id="soustotal" class="intitule">Subtotal</p>
 
   </section>
   <section class="logoSup">
@@ -38,7 +38,7 @@ let panierHtml = `<h1>Panier</h1>
 
 <article class="validationPanier">
   <section class="totalPanier">
-    <p>Total:</p>
+    <p id="total">Total:</p>
   </section>
   <section class="prixPanier">
 
@@ -165,6 +165,7 @@ function displayAllArticle() {
 }
 
 function chargerPanier() {
+    let total = 0;
   document.getElementById("main").innerHTML = panierHtml;
   mapListeIdArticles.forEach((value, key) => {
     document
@@ -174,10 +175,22 @@ function chargerPanier() {
         "<p>" + jsonArticles.articles[key].nom + "</p>"
       );
     document
+      .getElementById("quantite")
+      .insertAdjacentHTML(
+        "beforeend",
+        "<p>" + value + "</p>"
+      );
+    document
       .getElementById("prix")
       .insertAdjacentHTML(
         "beforeend",
         "<p>" + jsonArticles.articles[key].prix + "</p>"
+      );
+      document
+      .getElementById("soustotal")
+      .insertAdjacentHTML(
+        "beforeend",
+        "<p>" + jsonArticles.articles[key].prix * value + "</p>"
       );
     document
       .getElementById("supp")
@@ -185,14 +198,21 @@ function chargerPanier() {
         "beforeend",
         '<p> <i class="fa-regular fa-trash-can"></i> </p>'
       );
+      total += jsonArticles.articles[key].prix * value;
   });
+  document
+      .getElementById("total")
+      .insertAdjacentHTML(
+        "beforeend",total
+      );
 }
 
 function ajouterArticle(id){
-    if(mapListeIdArticles.get(id)){
-        mapListeIdArticles.set(id, mapListeIdArticles.get(id)++)
+    if(mapListeIdArticles.has(id)){
+        mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1 );
     }else{
-        mapListeIdArticles.set(id, 0)
+        mapListeIdArticles.set(id, 1);
     }
+    console.log(mapListeIdArticles);
     document.getElementById('compteur').innerHTML = mapListeIdArticles.size;
 }
