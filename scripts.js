@@ -144,14 +144,6 @@ function displayOneArticle(categorie) {
   isPagePanier = false;
 }
 
-function chargerPanier(){
-    document.getElementById('main').innerHTML = panierHtml;
-    mapListeIdArticles.forEach((value, key )=>{
-        document.getElementById('prix').insertAdjacentHTML('beforeend','<p>' + jsonArticles.articles[key].prix + '</p>')
-    })
-    isPagePanier = true;
-}
-
 function displayAllArticle() {
   //Si page panier on doit recharger les elements
   if (isPagePanier) {
@@ -205,6 +197,7 @@ function chargerPanier() {
       .insertAdjacentHTML(
         "beforeend",total
       );
+      isPagePanier = true;
 }
 
 function ajouterArticle(id){
