@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HTML5 Boilerplate</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles2.css">
   <script src="https://kit.fontawesome.com/aaa613d165.js" crossorigin="anonymous"></script>
 </head>
 
@@ -48,7 +49,7 @@
             <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Chaussures</button>
           </li>
           <li class="bouton_panier">
-            <a class="bouton_panier_lien" href="">
+            <a class="bouton_panier_lien" onclick="chargerPanier()">
               <i class="fa-solid fa-cart-shopping"></i>Panier
               <span class="compteur">0</span>
             </a>
@@ -59,7 +60,7 @@
         <p class="texte_footer">© 2023 Ducsman </p>
       </footer>
     </aside>
-    <main>
+    <main id="main">
       <h2 class="titre_principal">Tous les articles</h2>
       <div class="valise_items">
         <div id="card" class="card_item" style="width: 18rem;"></div>
