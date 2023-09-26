@@ -11,29 +11,23 @@ let panierHtml = `<h1>Panier</h1>
 
   <section class="titreArticle">
     <p id="nomArticle" class="intitule">Article</p>
-    <p></p>
 
   </section>
   <section class="quantiteArticle">
     <p class="intitule">Quantité</p>
-    <p></p>
 
   </section>
   <section class="prixArticle">
     <p id="prix" class="intitule">Prix</p>
-    <p></p>
-
-   
 
   </section>
   <section class="totalArticle">
     <p class="intitule">Subtotal</p>
-    <p></p>
 
   </section>
-  <span class="logoSup">
-    <i class="fa-regular fa-trash-can"></i>
-  </span>
+  <section class="logoSup">
+    <p id="supp" class = "intitule">Supprimer</p>
+  </section>
 </article>
 
 <div class="viderPanier">
@@ -98,16 +92,22 @@ function chargerPanier() {
   document.getElementById("main").innerHTML = panierHtml;
   listeIdArticles.forEach((id) => {
     document
+      .getElementById("nomArticle")
+      .insertAdjacentHTML(
+        "beforeend",
+        "<p>" + jsonArticles.articles[id].nom + "</p>"
+      );
+    document
       .getElementById("prix")
       .insertAdjacentHTML(
         "beforeend",
         "<p>" + jsonArticles.articles[id].prix + "</p>"
       );
     document
-      .getElementById("nomArticle")
+      .getElementById("supp")
       .insertAdjacentHTML(
         "beforeend",
-        "<p>" + jsonArticles.articles[id].nom + "</p>"
+        '<p> <i class="fa-regular fa-trash-can"></i> </p>'
       );
   });
 }
