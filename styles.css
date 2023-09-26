@@ -5,98 +5,150 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
 }
 
-body {
+.wrapper {
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    width: 100%;
-    height: 99vh;
-}
-
-.side_bar {
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    justify-content: space-between;
-    padding: 2%;
-    height: 95vh;
+    grid-template-columns: 1fr 4fr;
     background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
 }
-
-.header {
+/*--------------SECTION NAV----------*/
+aside {
+    padding: 2rem;
+    padding-top: .5rem;
+    padding-right: 0;
+    padding-bottom: 0;
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    color: #ffff;
-    padding-left: 5%;
-    
+    justify-content: space-between;
 }
 .logo {
     font-family: italianno;
     font-size: 4rem;
     font-weight: 100;
-    border: 1px solid red;
-    margin-bottom: 0%;
+    height : 50px;    
 }
-
 .slogan {
     font-family: 'Amiri';
     font-style: italic;
     font-size: 1.2rem;
     font-weight: 100;
-    border: 1px solid red;
-}
-
-.menu {
-    font-family: 'Amiri';
-    font-style: italic;
-    padding-left: 25%;
-    font-size: 1.5rem;
-    color: #ffff;
-    margin-top: 20%;
-    
-}
-.menu ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-}
-
-.side_bar a {
-    text-decoration: none;
-    color: #ffff;
-    display: inline-flex;
-    gap: 10%;
-}
-.side_bar a:hover {
-    color: #cdcdcd;
-}
-.panier_navbar{
-    display: inline-flex;
-    gap: 5%;
-    font-family: 'Amiri';
-    font-style: italic;
-    font-size: 1.5rem;
-    justify-content: center;
-    color:#ffff;
-}
-.panier_navbar i{
-    padding-top: 5%;
-}
-.compteur{
-    width: 8%;
-    height: 65%;
-    margin-left: 2%;
-
 }
 .footer_nav{
-    text-align: center;
     font-family: 'Amiri';
     font-style: italic;
     font-size: 1.2rem;
     color: #5d73b0;
+    padding-left: 1rem;
+    padding-bottom: .5rem;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+nav{
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+li i{
+    padding-left: .3rem;
+    padding-top: .3rem;
 }
 
+.bouton_categorie{
+    background-color: transparent;
+    border: 0;
+    font-family: 'Amiri';
+    font-style: italic;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    padding: .2rem;
+}
+.bouton_categorie.active {
+    background-color: #ffffff;
+    color: #303030;
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    position: relative;
+}
+.bouton_categorie.active::before{
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    bottom: 100%;
+    right: 0;
+    background-color: transparent;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 0 1rem 0 #ffffff;
+}
+.bouton_categorie.active::after{
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 100%;
+    right: 0;
+    background-color: transparent;
+    border-top-right-radius: .5rem;
+    box-shadow: 0 -1rem 0 #ffffff;
+
+}
+.bouton_panier{
+    padding-top: 3rem;
+}
+.bouton_panier_lien{
+    display: flex;
+    gap: .5rem;
+    color: #ffffff;
+    font-family: 'Amiri';
+    font-style: italic;
+    font-size: 1.5rem;
+}
+.bouton_panier_lien i{
+    padding-top: .4rem;
+}
+
+/*-----------SECTION MAIN---------*/
+
+main {
+    background-color: #ffffff;
+    margin: 1rem;
+    border-radius: 2rem;
+    margin-left: 0;
+    padding: 2rem;
+}
+.titre_principal{
+    color: #303030;
+    font-family: 'Amiri';
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+.valise_items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+.card-body{
+    width:25%;
+}
+.img_item{
+    max-width: 50%;
+}
 
