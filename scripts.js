@@ -12,27 +12,24 @@ let panierHtml = `<h1>Panier</h1>
   </section>
 
   <section class="titreArticle">
-    <p class="intitule">Article</p>
-    <p></p>
+    <p id="nomArticle" class="intitule">Article</p>
+
   </section>
   <section class="quantiteArticle">
     <p class="intitule">Quantité</p>
-    <p></p>
 
   </section>
   <section class="prixArticle">
     <p id="prix" class="intitule">Prix</p>
-    <p></p>
 
   </section>
   <section class="totalArticle">
     <p class="intitule">Subtotal</p>
-    <p></p>
 
   </section>
-  <span class="logoSup">
-    <i class="fa-regular fa-trash-can"></i>
-  </span>
+  <section class="logoSup">
+    <p id="supp" class = "intitule">Supprimer</p>
+  </section>
 </article>
 
 <div class="viderPanier">
@@ -53,23 +50,24 @@ let panierHtml = `<h1>Panier</h1>
 
 chargerArticlesJson();
 
-function chargerArticlesJson(){
-    getJSON('articles.json').then(data => {
-        jsonArticles = data;  
-        chargerArticles();
-    })
+function chargerArticlesJson() {
+  getJSON("articles.json").then((data) => {
+    jsonArticles = data;
+    chargerArticles();
+  });
 }
 
-function chargerArticles(){
-    document.getElementById("main").innerHTML = 
-    ` 
+function chargerArticles() {
+  document.getElementById("main").innerHTML = ` 
     <h2 id="titre" class="titre_principal">Tous les articles</h2>
     <div class="valise_items">
       <div id="card" class="card_item" style="width: 18rem;"></div>
     </div>
     `;
-    document.getElementById('card').innerHTML = jsonArticles.articles.map((article) => 
-                ` 
+  document.getElementById("card").innerHTML = jsonArticles.articles
+    .map(
+      (article) =>
+        ` 
                 <div class="card-body">
                 <img src="https://placehold.co/600x400" class="img_item" alt="...">
                 <h5>Nom: ${article.nom}</h5>
@@ -80,75 +78,70 @@ function chargerArticles(){
                 </div>
                 
                 `
-            
-        ).join('')
+    )
+    .join("");
 }
-
 
 function getJSON(path) {
-    return fetch(path).then(response => response.json());
+  return fetch(path).then((response) => response.json());
 }
 
-function displayOneArticle(categorie){
-    //Si on vient de panier on doit de nouveau récupérer la data
-    if(isPagePanier){
-        chargerArticles();
-    }
+function displayOneArticle(categorie) {
+  //Si on vient de panier on doit de nouveau récupérer la data
+  if (isPagePanier) {
+    chargerArticles();
+  }
 
-    let titreHtml = "Tous les articles";
-    //On met le titre de la categorie de l'article
-    switch(categorie){
-        case 'costume': titreHtml = 'Costumes';
-        break;
-        case 'robe': titreHtml = 'Robes';
-        break;
-        case 'chemise': titreHtml = 'Chemises';
-        break;
-        case 'jupe': titreHtml = 'Jupes';
-        break;
-        case 'manteau': titreHtml = 'Manteaux';
-        break;
-        case 'pantalon': titreHtml = 'Pantalons';
-        break;
-        case 'blouse': titreHtml = 'Blouses';
-        break;
-        case 'cravate': titreHtml = 'Cravates';
-        break;
-        case 'chaussure': titreHtml = 'Chaussures';
-        break;
-    }
-    document.getElementById("titre").innerHTML = titreHtml;
+  let titreHtml = "Tous les articles";
+  //On met le titre de la categorie de l'article
+  switch (categorie) {
+    case "costume":
+      titreHtml = "Costumes";
+      break;
+    case "robe":
+      titreHtml = "Robes";
+      break;
+    case "chemise":
+      titreHtml = "Chemises";
+      break;
+    case "jupe":
+      titreHtml = "Jupes";
+      break;
+    case "manteau":
+      titreHtml = "Manteaux";
+      break;
+    case "pantalon":
+      titreHtml = "Pantalons";
+      break;
+    case "blouse":
+      titreHtml = "Blouses";
+      break;
+    case "cravate":
+      titreHtml = "Cravates";
+      break;
+    case "chaussure":
+      titreHtml = "Chaussures";
+      break;
+  }
+  document.getElementById("titre").innerHTML = titreHtml;
 
-    //On recupere toutes les cards et on boucle dessus
-    document.querySelectorAll('.card-body').forEach(elem => {
-    
+  //On recupere toutes les cards et on boucle dessus
+  document.querySelectorAll(".card-body").forEach((elem) => {
     //On boucle sur les categorie de chaque card pour obtenir sa valeur
     let isCategorie = false;
-    elem.querySelectorAll('.categorie').forEach(elem2 => {
-;         isCategorie = elem2.childNodes[0].nodeValue== categorie;
-    })
-
-    //Si c'est la bonne categorie on l'affiche, sinon on la cache
-    if(isCategorie){
-        elem.style.display = 'block';
-    }else{
-        elem.style.display = 'none';
-    }
+    elem.querySelectorAll(".categorie").forEach((elem2) => {
+      isCategorie = elem2.childNodes[0].nodeValue == categorie;
     });
 
-    isPagePanier = false;
-}
-
-function displayAllArticle(){
-    //Si page panier on doit recharger les elements
-    if(isPagePanier){
-        chargerArticles();
-    }else{
-    //Sinon on peut juste les rendre visible
-        document.querySelectorAll('.card-body').forEach(elem => {
-            elem.style.display = 'block';
-        })
+    //Si c'est la bonne categorie on l'affiche, sinon on la cache
+    if (isCategorie) {
+      elem.style.display = "block";
+    } else {
+      elem.style.display = "none";
     }
+  });
+
+  isPagePanier = false;
 }
 
 function chargerPanier(){
@@ -159,6 +152,42 @@ function chargerPanier(){
     isPagePanier = true;
 }
 
+function displayAllArticle() {
+  //Si page panier on doit recharger les elements
+  if (isPagePanier) {
+    chargerArticles();
+  } else {
+    //Sinon on peut juste les rendre visible
+    document.querySelectorAll(".card-body").forEach((elem) => {
+      elem.style.display = "block";
+    });
+  }
+}
+
+function chargerPanier() {
+  document.getElementById("main").innerHTML = panierHtml;
+  mapListeIdArticles.forEach((value, key) => {
+    document
+      .getElementById("nomArticle")
+      .insertAdjacentHTML(
+        "beforeend",
+        "<p>" + jsonArticles.articles[key].nom + "</p>"
+      );
+    document
+      .getElementById("prix")
+      .insertAdjacentHTML(
+        "beforeend",
+        "<p>" + jsonArticles.articles[key].prix + "</p>"
+      );
+    document
+      .getElementById("supp")
+      .insertAdjacentHTML(
+        "beforeend",
+        '<p> <i class="fa-regular fa-trash-can"></i> </p>'
+      );
+  });
+}
+
 function ajouterArticle(id){
     if(mapListeIdArticles.get(id)){
         mapListeIdArticles.set(id, mapListeIdArticles.get(id)++)
@@ -167,5 +196,3 @@ function ajouterArticle(id){
     }
     document.getElementById('compteur').innerHTML = mapListeIdArticles.size;
 }
-
-
