@@ -208,11 +208,17 @@ function chargerPanier() {
 }
 
 function ajouterArticle(id){
+    let nbOfArticles = 0;
+    
     if(mapListeIdArticles.has(id)){
         mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1 );
     }else{
         mapListeIdArticles.set(id, 1);
     }
-    console.log(mapListeIdArticles);
-    document.getElementById('compteur').innerHTML = mapListeIdArticles.size;
+    
+    mapListeIdArticles.forEach((value,key) =>{
+        console.log(value);
+        nbOfArticles += value;
+    });
+    document.getElementById('compteur').innerHTML = nbOfArticles;
 }
