@@ -146,7 +146,7 @@ main {
     gap: 1rem;
 }
 .card-body{
-    weight:25%;
+    width:25%;
 }
 .img_item{
     max-width: 50%;
