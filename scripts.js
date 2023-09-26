@@ -1,6 +1,7 @@
 let jsonArticles;
 let idArticleIncrement = 0;
-let listeIdArticles = [];
+//let listeIdArticles = [];
+let mapListeIdArticles = new Map();
 let isPagePanier = false;
 let panierHtml = `<h1>Panier</h1>
 
@@ -152,15 +153,19 @@ function displayAllArticle(){
 
 function chargerPanier(){
     document.getElementById('main').innerHTML = panierHtml;
-    listeIdArticles.forEach(id =>{
-        document.getElementById('prix').insertAdjacentHTML('beforeend','<p>' + jsonArticles.articles[id].prix + '</p>')
+    mapListeIdArticles.forEach((value, key )=>{
+        document.getElementById('prix').insertAdjacentHTML('beforeend','<p>' + jsonArticles.articles[key].prix + '</p>')
     })
     isPagePanier = true;
 }
 
 function ajouterArticle(id){
-    listeIdArticles.push(id);
-    document.getElementById('compteur').innerHTML = listeIdArticles.length;
+    if(mapListeIdArticles.get(id)){
+        mapListeIdArticles.set(id, mapListeIdArticles.get(id)++)
+    }else{
+        mapListeIdArticles.set(id, 0)
+    }
+    document.getElementById('compteur').innerHTML = mapListeIdArticles.size;
 }
 
 
