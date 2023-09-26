@@ -145,9 +145,6 @@ main {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
-.card-body{
-    width:25%;
-}
 .img_item{
     max-width: 50%;
 }

@@ -10,6 +10,63 @@
 </head>
 
 <body>
+  <div class="wrapper">
+    <aside>
+      <header class="header">
+
+        <h1 class="logo">Ducsman</h1>
+        <h2 class="slogan"> Sapés comme jamais. <h2>
+
+      </header>
+      <nav>
+        <ul class="menu">
+          <li>
+            <button class="bouton_categorie active"><i class="fa-solid fa-caret-right"></i>Costume</button>
+          </li>
+          <li>
+            <button onclick="displayOneArticle('robe')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Robe</button>
+          </li>
+          <li>
+            <button onclick="displayOneArticle('chemise')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Chemise</button>
+          </li>
+          <li>
+            <button onclick="displayOneArticle('jupe')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Jupe</button>
+          </li>
+          <li>
+            <button onclick="displayOneArticle('manteau')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Manteau</button>
+          </li>
+          <li>
+            <button onclick="displayOneArticle('pantalon')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Pantalon</button>
+          </li>
+          <li>
+            <button onclick="displayOneArticle('blouse')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Blouse</button>
+          </li>
+          <li>
+            <button onclick="displayOneArticle('cravate')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Cravate</button>
+          </li>
+          <li>
+            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Chaussures</button>
+          </li>
+          <li class="bouton_panier">
+            <a class="bouton_panier_lien" href="">
+              <i class="fa-solid fa-cart-shopping"></i>Panier
+              <span class="compteur">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <footer class="footer_nav">
+        <p class="texte_footer">© 2023 Ducsman </p>
+      </footer>
+    </aside>
+    <main>
+      <h2 class="titre_principal">Tous les articles</h2>
+      <div class="valise_items">
+        <div id="card" class="card_item" style="width: 18rem;"></div>
+      </div>
+    </main>
+  </div>
+
   <script src="scripts.js"></script>
 </body>
 
