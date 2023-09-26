@@ -1,6 +1,7 @@
 let jsonArticles;
 let idArticleIncrement = 0;
 let listeIdArticles = [];
+let isPagePanier = false;
 let panierHtml = `<h1>Panier</h1>
 
 <article class="articlePanier">
@@ -12,7 +13,6 @@ let panierHtml = `<h1>Panier</h1>
   <section class="titreArticle">
     <p class="intitule">Article</p>
     <p></p>
-
   </section>
   <section class="quantiteArticle">
     <p class="intitule">Quantité</p>
@@ -20,7 +20,7 @@ let panierHtml = `<h1>Panier</h1>
 
   </section>
   <section class="prixArticle">
-    <p class="intitule">Prix</p>
+    <p id="prix" class="intitule">Prix</p>
     <p></p>
 
   </section>
@@ -50,24 +50,38 @@ let panierHtml = `<h1>Panier</h1>
   </section>
 </article>`;
 
-getJSON('articles.json').then(data => {
-    jsonArticles = data;  
-    document.getElementById('card').innerHTML = jsonArticles.articles.map((article) => 
-            ` 
-            <div class="card-body">
-            <img src="https://placehold.co/600x400" class="img_item" alt="...">
-            <h5>Nom: ${article.nom}</h5>
-            <p>Prix: ${article.prix}</p>
-            <p>${article.designation}</p>
-            <p class="categorie">${article.categorie}</p>
-            <a id="${idArticleIncrement++}" onclick="ajouterArticle(this.id)" class="btn btn-primary">Ajouter</a>
-            </div>
-            
-            `
-        
-    ).join('')
-})
+chargerArticlesJson();
 
+function chargerArticlesJson(){
+    getJSON('articles.json').then(data => {
+        jsonArticles = data;  
+        chargerArticles();
+    })
+}
+
+function chargerArticles(){
+    document.getElementById("main").innerHTML = 
+    ` 
+    <h2 id="titre" class="titre_principal">Tous les articles</h2>
+    <div class="valise_items">
+      <div id="card" class="card_item" style="width: 18rem;"></div>
+    </div>
+    `;
+    document.getElementById('card').innerHTML = jsonArticles.articles.map((article) => 
+                ` 
+                <div class="card-body">
+                <img src="https://placehold.co/600x400" class="img_item" alt="...">
+                <h5>Nom: ${article.nom}</h5>
+                <p>Prix: ${article.prix}</p>
+                <p>${article.designation}</p>
+                <p class="categorie">${article.categorie}</p>
+                <a id="${idArticleIncrement++}" onclick="ajouterArticle(this.id)" class="btn btn-primary">Ajouter</a>
+                </div>
+                
+                `
+            
+        ).join('')
+}
 
 
 function getJSON(path) {
@@ -75,6 +89,35 @@ function getJSON(path) {
 }
 
 function displayOneArticle(categorie){
+    //Si on vient de panier on doit de nouveau récupérer la data
+    if(isPagePanier){
+        chargerArticles();
+    }
+
+    let titreHtml = "Tous les articles";
+    //On met le titre de la categorie de l'article
+    switch(categorie){
+        case 'costume': titreHtml = 'Costumes';
+        break;
+        case 'robe': titreHtml = 'Robes';
+        break;
+        case 'chemise': titreHtml = 'Chemises';
+        break;
+        case 'jupe': titreHtml = 'Jupes';
+        break;
+        case 'manteau': titreHtml = 'Manteaux';
+        break;
+        case 'pantalon': titreHtml = 'Pantalons';
+        break;
+        case 'blouse': titreHtml = 'Blouses';
+        break;
+        case 'cravate': titreHtml = 'Cravates';
+        break;
+        case 'chaussure': titreHtml = 'Chaussures';
+        break;
+    }
+    document.getElementById("titre").innerHTML = titreHtml;
+
     //On recupere toutes les cards et on boucle dessus
     document.querySelectorAll('.card-body').forEach(elem => {
     
@@ -91,27 +134,33 @@ function displayOneArticle(categorie){
         elem.style.display = 'none';
     }
     });
+
+    isPagePanier = false;
+}
+
+function displayAllArticle(){
+    //Si page panier on doit recharger les elements
+    if(isPagePanier){
+        chargerArticles();
+    }else{
+    //Sinon on peut juste les rendre visible
+        document.querySelectorAll('.card-body').forEach(elem => {
+            elem.style.display = 'block';
+        })
+    }
 }
 
 function chargerPanier(){
     document.getElementById('main').innerHTML = panierHtml;
     listeIdArticles.forEach(id =>{
-        document.getElementById('main').insertAdjacentHTML('beforeend',
-        ` 
-        <div class="card-body">
-        <img src="https://placehold.co/600x400" class="img_item" alt="...">
-        <h5>Nom: ${jsonArticles.articles[id].nom}</h5>
-        <p>Prix: ${jsonArticles.articles[id].prix}</p>
-        <p>${jsonArticles.articles[id].designation}</p>
-        <p class="categorie">${jsonArticles.articles[id].categorie}</p>
-        </div>
-        
-        `)
+        document.getElementById('prix').insertAdjacentHTML('beforeend','<p>' + jsonArticles.articles[id].prix + '</p>')
     })
+    isPagePanier = true;
 }
 
 function ajouterArticle(id){
     listeIdArticles.push(id);
+    document.getElementById('compteur').innerHTML = listeIdArticles.length;
 }
 
 

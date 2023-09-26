@@ -149,3 +149,6 @@ main {
     max-width: 50%;
 }
 
+.categorie{
+    visibility: hidden;
+}
