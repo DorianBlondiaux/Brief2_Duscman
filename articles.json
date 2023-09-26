@@ -1,0 +1,57 @@
+{
+    "articles": [
+      {
+        "nom": "Costume en laine",
+        "prix": 199.99,
+        "designation": "Costume élégant en laine pour hommes"
+        
+        
+      },
+      {
+        "nom": "Robe de soirée",
+        "prix": 149.99,
+        "designation": "Robe de soirée longue pour femmes"
+      },
+      {
+        "nom": "Chemise en coton",
+        "prix": 49.99,
+        "designation": "Chemise décontractée en coton pour hommes"
+      },
+      {
+        "nom": "Jupe plissée",
+        "prix": 79.99,
+        "designation": "Jupe plissée midi pour femmes"
+      },
+      {
+        "nom": "Veste en tweed",
+        "prix": 129.99,
+        "designation": "Veste en tweed pour hommes"
+      },
+      {
+        "nom": "Pantalon de costume",
+        "prix": 79.99,
+        "designation": "Pantalon de costume ajusté pour hommes"
+      },
+      {
+        "nom": "Blouse en soie",
+        "prix": 89.99,
+        "designation": "Blouse en soie légère pour femmes"
+      },
+      {
+        "nom": "Manteau en laine",
+        "prix": 179.99,
+        "designation": "Manteau en laine pour femmes"
+      },
+      {
+        "nom": "Cravate en soie",
+        "prix": 29.99,
+        "designation": "Cravate en soie haut de gamme"
+      },
+      {
+        "nom": "Chaussures en cuir",
+        "prix": 119.99,
+        "designation": "Chaussures en cuir pour hommes"
+      }
+    ]
+  }
+  
