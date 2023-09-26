@@ -22,7 +22,10 @@
       <nav>
         <ul class="menu">
           <li>
-            <button class="bouton_categorie active"><i class="fa-solid fa-caret-right"></i>Costume</button>
+            <button onclick="displayAllArticle()" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Tous les articles</button>
+          </li>
+          <li>
+            <button onclick="displayOneArticle('costume')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Costume</button>
           </li>
           <li>
             <button onclick="displayOneArticle('robe')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Robe</button>
@@ -46,12 +49,12 @@
             <button onclick="displayOneArticle('cravate')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Cravate</button>
           </li>
           <li>
-            <button class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Chaussures</button>
+            <button onclick="displayOneArticle('chaussure')" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Chaussures</button>
           </li>
           <li class="bouton_panier">
             <a class="bouton_panier_lien" onclick="chargerPanier()">
               <i class="fa-solid fa-cart-shopping"></i>Panier
-              <span class="compteur">0</span>
+              <span id="compteur" class="compteur">0</span>
             </a>
           </li>
         </ul>
@@ -61,10 +64,7 @@
       </footer>
     </aside>
     <main id="main">
-      <h2 class="titre_principal">Tous les articles</h2>
-      <div class="valise_items">
-        <div id="card" class="card_item" style="width: 18rem;"></div>
-      </div>
+      
     </main>
   </div>
 
