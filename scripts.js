@@ -49,6 +49,35 @@ let panierHtml = `<h1>Panier</h1>
 
 chargerArticlesJson();
 
+//    Ajoute la clase active dans le boutons de la liste du menu //
+const boutonsCategories = document.querySelectorAll(".bouton_cat");
+
+
+boutonsCategories.forEach(boton => {
+  boton.addEventListener("click", (e) => {
+
+    boutonsCategories.forEach(boton => boton.classList.remove("active"));
+    e.currentTarget.classList.add("active");
+  })
+})
+
+//     OPen close menu responsive  //
+const openMenu = document.querySelector("#open_menu");
+const closeMenu = document.querySelector("#close_menu");
+const aside = document.querySelector("aside");
+
+openMenu.addEventListener("click", () => {
+  aside.classList.add("aside_visible");
+})
+
+closeMenu.addEventListener("click", () => {
+  aside.classList.remove("aside_visible");
+})
+
+boutonsCategories.forEach(boton => boton.addEventListener("click", () => {
+  aside.classList.remove("aside_visible");
+}))
+
 function chargerArticlesJson() {
   getJSON("articles.json").then((data) => {
     jsonArticles = data;
@@ -59,9 +88,8 @@ function chargerArticlesJson() {
 function chargerArticles() {
   document.getElementById("main").innerHTML = ` 
     <h2 id="titre" class="titre_principal">Tous les articles</h2>
-    <div class="valise_items">
-      <div id="card" class="card_item" style="width: 18rem;"></div>
-    </div>
+    <div id="card" class="valise_items"></div>
+    
     `;
   document.getElementById("card").innerHTML = jsonArticles.articles
     .map(
@@ -84,34 +112,6 @@ function chargerArticles() {
     )
     .join("");
 }
-        //    Ajoute la clase active dans le boutons de la liste du menu //
-const boutonsCategories = document.querySelectorAll(".bouton_cat");
-
-
-boutonsCategories.forEach(boton =>{
-    boton.addEventListener("click", (e) => {
-
-        boutonsCategories.forEach(boton => boton.classList.remove("active"));
-        e.currentTarget.classList.add("active");
-    })
-})
-
-   //     OPen close menu responsive  //
-const openMenu = document.querySelector("#open_menu");
-const closeMenu = document.querySelector("#close_menu");
-const aside = document.querySelector("aside");
-
-openMenu.addEventListener("click", () => {
-    aside.classList.add("aside_visible");
-})
-
-closeMenu.addEventListener("click", () => {
-    aside.classList.remove("aside_visible");
-})
-
-boutonsCategories.forEach(boton => boton.addEventListener("click", () => {
-    aside.classList.remove("aside_visible");
-}))
 
 function getJSON(path) {
   return fetch(path).then((response) => response.json());
@@ -166,7 +166,7 @@ function displayOneArticle(categorie) {
 
     //Si c'est la bonne categorie on l'affiche, sinon on la cache
     if (isCategorie) {
-      elem.style.display = "block";
+      elem.style.display = "flex";
     } else {
       elem.style.display = "none";
     }
@@ -182,13 +182,13 @@ function displayAllArticle() {
   } else {
     //Sinon on peut juste les rendre visible
     document.querySelectorAll(".card-body").forEach((elem) => {
-      elem.style.display = "block";
+      elem.style.display = "flex";
     });
   }
 }
 
 function chargerPanier() {
-    let total = 0;
+  let total = 0;
   document.getElementById("main").innerHTML = panierHtml;
   mapListeIdArticles.forEach((value, key) => {
     document
@@ -209,7 +209,7 @@ function chargerPanier() {
         "beforeend",
         "<p>" + jsonArticles.articles[key].prix + "</p>"
       );
-      document
+    document
       .getElementById("soustotal")
       .insertAdjacentHTML(
         "beforeend",
@@ -221,28 +221,28 @@ function chargerPanier() {
         "beforeend",
         '<p> <i class="fa-regular fa-trash-can"></i> </p>'
       );
-      total += jsonArticles.articles[key].prix * value;
+    total += jsonArticles.articles[key].prix * value;
   });
   document
-      .getElementById("total")
-      .insertAdjacentHTML(
-        "beforeend",total
-      );
-      isPagePanier = true;
+    .getElementById("total")
+    .insertAdjacentHTML(
+      "beforeend", total
+    );
+  isPagePanier = true;
 }
 
-function ajouterArticle(id){
-    let nbOfArticles = 0;
-    
-    if(mapListeIdArticles.has(id)){
-        mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1 );
-    }else{
-        mapListeIdArticles.set(id, 1);
-    }
-    
-    mapListeIdArticles.forEach((value,key) =>{
-        console.log(value);
-        nbOfArticles += value;
-    });
-    document.getElementById('compteur').innerHTML = nbOfArticles;
+function ajouterArticle(id) {
+  let nbOfArticles = 0;
+
+  if (mapListeIdArticles.has(id)) {
+    mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1);
+  } else {
+    mapListeIdArticles.set(id, 1);
+  }
+
+  mapListeIdArticles.forEach((value, key) => {
+    console.log(value);
+    nbOfArticles += value;
+  });
+  document.getElementById('compteur').innerHTML = nbOfArticles;
 }
