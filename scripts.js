@@ -234,32 +234,18 @@ function chargerPanier() {
 
 function ajouterArticle(id) {
   let nbOfArticles = 0;
+  let idNumeric = Number(id);
 
-  if (mapListeIdArticles.has(id)) {
-    mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1);
+  if (mapListeIdArticles.has(idNumeric)) {
+    mapListeIdArticles.set(idNumeric, mapListeIdArticles.get(idNumeric) + 1);
   } else {
-    mapListeIdArticles.set(id, 1);
+    mapListeIdArticles.set(idNumeric, 1);
   }
 
   mapListeIdArticles.forEach((value, key) => {
     nbOfArticles += value;
   });
   document.getElementById("compteur").innerHTML = nbOfArticles;
-  function ajouterArticle(id) {
-    let nbOfArticles = 0;
-
-    if (mapListeIdArticles.has(id)) {
-      mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1);
-    } else {
-      mapListeIdArticles.set(id, 1);
-    }
-
-    mapListeIdArticles.forEach((value, key) => {
-      console.log(value);
-      nbOfArticles += value;
-    });
-    document.getElementById("compteur").innerHTML = nbOfArticles;
-  }
 }
 
 function viderPanier() {
@@ -274,7 +260,10 @@ function viderPanier() {
 }
 
 function supprimerArticle(id) {
-  console.log(mapListeIdArticles);
+  mapListeIdArticles.forEach((value, key) => {
+  });
+  mapListeIdArticles.get(id);
+
   if (mapListeIdArticles.has(id)) {
     const quantity = mapListeIdArticles.get(id);
     if (quantity > 1) {
