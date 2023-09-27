@@ -1,5 +1,4 @@
 let jsonArticles;
-let idArticleIncrement = 0;
 let mapListeIdArticles = new Map();
 let isPagePanier = false;
 let panierHtml = `<h1>Panier</h1>
@@ -61,7 +60,15 @@ boutonsCategories.forEach(boton => {
     e.currentTarget.classList.add("active");
   })
 })
+    boutonsCategories.forEach(boton => boton.classList.remove("active"));
+    e.currentTarget.classList.add("active");
+  })
+})
 
+//     OPen close menu responsive  //
+const openMenu = document.querySelector("#open_menu");
+const closeMenu = document.querySelector("#close_menu");
+const aside = document.querySelector("aside");
 //     OPen close menu responsive  //
 const openMenu = document.querySelector("#open_menu");
 const closeMenu = document.querySelector("#close_menu");
@@ -70,7 +77,13 @@ const aside = document.querySelector("aside");
 openMenu.addEventListener("click", () => {
   aside.classList.add("aside_visible");
 })
+openMenu.addEventListener("click", () => {
+  aside.classList.add("aside_visible");
+})
 
+closeMenu.addEventListener("click", () => {
+  aside.classList.remove("aside_visible");
+})
 closeMenu.addEventListener("click", () => {
   aside.classList.remove("aside_visible");
 })
@@ -90,6 +103,7 @@ function chargerArticlesJson() {
 }
 
 function chargerArticles() {
+  let idArticleIncrement = 0;
   document.getElementById("main").innerHTML = ` 
     <h2 id="titre" class="titre_principal">Tous les articles</h2>
     <div id="card" class="valise_items"></div>
@@ -100,7 +114,7 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                  <img src="https://placehold.co/700x900" class="img_item" alt="...">
+                  <img  src="/images/${article.image}" class="img_item" alt="...">
                     <div class="valise_contenu_card">
                       <div class="contenu_card">
                           <h5>${article.nom}</h5>
@@ -184,14 +198,13 @@ function displayAllArticle() {
   if (isPagePanier) {
     chargerArticles();
   } else {
-    //Sinon on peut juste les rendre visible et mettre à jour le titre
-    document.getElementById("titre").innerHTML = 'Tous les articles';
     //Sinon on peut juste les rendre visible et afficher le titre correspondant
     document.getElementById("titre").innerHTML = 'Tous les articles';
     document.querySelectorAll(".card-body").forEach((elem) => {
       elem.style.display = "flex";
     });
   }
+  isPagePanier = false;
 }
 
 function chargerPanier() {
@@ -248,7 +261,6 @@ function ajouterArticle(id) {
   }
 
   mapListeIdArticles.forEach((value, key) => {
-    console.log(value);
     nbOfArticles += value;
   });
   document.getElementById('compteur').innerHTML = nbOfArticles;
