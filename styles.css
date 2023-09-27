@@ -471,6 +471,7 @@ main {
     .valise_items {
         column-gap: 1rem;
         padding-top: 1rem;
+        margin: -2rem;
     }
 
     .card-body {
