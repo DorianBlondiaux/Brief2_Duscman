@@ -31,7 +31,7 @@ let panierHtml = `<h1>Panier</h1>
 </article>
 
 <div class="viderPanier">
-  <p>Vider Panier</p>
+  <p onclick="viderPanier()">Vider Panier</p>
 </div>
 
 <article class="validationPanier">
@@ -53,15 +53,13 @@ chargerArticlesJson();
 const boutonsCategories = document.querySelectorAll(".bouton_cat");
 const boutonPanier =document.querySelectorAll(".bouton_panier");
 
-
-boutonsCategories.forEach(boton => {
+boutonsCategories.forEach((boton) => {
   boton.addEventListener("click", (e) => {
-
-    boutonsCategories.forEach(boton => boton.classList.remove("active"));
+    boutonsCategories.forEach((boton) => boton.classList.remove("active"));
     e.currentTarget.classList.add("active");
-  })
-})
-   
+  });
+});
+
 //     OPen close menu responsive  //
 const openMenu = document.querySelector("#open_menu");
 const closeMenu = document.querySelector("#close_menu");
@@ -70,17 +68,17 @@ const aside = document.querySelector("aside");
 
 openMenu.addEventListener("click", () => {
   aside.classList.add("aside_visible");
-})
+});
 
 closeMenu.addEventListener("click", () => {
   aside.classList.remove("aside_visible");
-})
-boutonsCategories.forEach(boton => boton.addEventListener("click", () => {
-  aside.classList.remove("aside_visible");
-}))
-boutonPanier.forEach(boton => boton.addEventListener("click", () => {
-  aside.classList.remove("aside_visible");
-}))
+});
+
+boutonsCategories.forEach((boton) =>
+  boton.addEventListener("click", () => {
+    aside.classList.remove("aside_visible");
+  })
+);
 
 function chargerArticlesJson() {
   getJSON("articles.json").then((data) => {
@@ -101,11 +99,15 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                  <img  src="/images/${article.image}" class="img_item" alt="...">
+                  <img  src="/images/${
+                    article.image
+                  }" class="img_item" alt="...">
                     <div class="valise_contenu_card">
                       <div class="contenu_card">
                           <h5>${article.nom}</h5>
-                                <p class="descr_article">${article.designation}</p>
+                                <p class="descr_article">${
+                                  article.designation
+                                }</p>
                                 <p class="prix"> ${article.prix} €</p>
                                 <p class="categorie">${article.categorie}</p>
                                 <button id="${idArticleIncrement++}" onclick="ajouterArticle(this.id)" class="btn btn-primary">Ajouter</button>
@@ -186,7 +188,7 @@ function displayAllArticle() {
     chargerArticles();
   } else {
     //Sinon on peut juste les rendre visible et afficher le titre correspondant
-    document.getElementById("titre").innerHTML = 'Tous les articles';
+    document.getElementById("titre").innerHTML = "Tous les articles";
     document.querySelectorAll(".card-body").forEach((elem) => {
       elem.style.display = "flex";
     });
@@ -206,10 +208,7 @@ function chargerPanier() {
       );
     document
       .getElementById("quantite")
-      .insertAdjacentHTML(
-        "beforeend",
-        "<p>" + value + "</p>"
-      );
+      .insertAdjacentHTML("beforeend", "<p>" + value + "</p>");
     document
       .getElementById("prix")
       .insertAdjacentHTML(
@@ -226,29 +225,55 @@ function chargerPanier() {
       .getElementById("supp")
       .insertAdjacentHTML(
         "beforeend",
-        '<p> <i class="fa-regular fa-trash-can"></i> </p>'
+        '<p> <i onclick="supprimerArticle(' +
+          key +
+          ')" class="fa-regular fa-trash-can"></i> </p>'
       );
     total += jsonArticles.articles[key].prix * value;
   });
-  document
-    .getElementById("total")
-    .insertAdjacentHTML(
-      "beforeend", total
-    );
+  document.getElementById("total").insertAdjacentHTML("beforeend", total);
   isPagePanier = true;
 }
 
 function ajouterArticle(id) {
   let nbOfArticles = 0;
+  let idNumeric = Number(id);
 
-  if (mapListeIdArticles.has(id)) {
-    mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1);
+  if (mapListeIdArticles.has(idNumeric)) {
+    mapListeIdArticles.set(idNumeric, mapListeIdArticles.get(idNumeric) + 1);
   } else {
-    mapListeIdArticles.set(id, 1);
+    mapListeIdArticles.set(idNumeric, 1);
   }
 
   mapListeIdArticles.forEach((value, key) => {
     nbOfArticles += value;
   });
-  document.getElementById('compteur').innerHTML = nbOfArticles;
+  document.getElementById("compteur").innerHTML = nbOfArticles;
+}
+
+function viderPanier() {
+  // Réinitialise la carte du panier (panierHtml) à son état initial
+  document.getElementById("main").innerHTML = panierHtml;
+
+  // Efface la carte du panier et réinitialise la map des articles du panier
+  mapListeIdArticles.clear();
+
+  // Réinitialise le compteur du panier à zéro
+  document.getElementById("compteur").innerHTML = 0;
+}
+
+function supprimerArticle(id) {
+  mapListeIdArticles.forEach((value, key) => {
+  });
+  mapListeIdArticles.get(id);
+
+  if (mapListeIdArticles.has(id)) {
+    const quantity = mapListeIdArticles.get(id);
+    if (quantity > 1) {
+      mapListeIdArticles.set(id, quantity - 1);
+    } else {
+      mapListeIdArticles.delete(id);
+    }
+    chargerPanier();
+  }
 }
