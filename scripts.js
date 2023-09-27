@@ -50,33 +50,33 @@ let panierHtml = `<h1>Panier</h1>
 chargerArticlesJson();
 
 //    Ajoute la clase active dans le boutons de la liste du menu //
-const boutonsCategories = document.querySelectorAll(".bouton_cat");
+// const boutonsCategories = document.querySelectorAll(".bouton_cat");
 
 
-boutonsCategories.forEach(boton => {
-  boton.addEventListener("click", (e) => {
+// boutonsCategories.forEach(boton => {
+//   boton.addEventListener("click", (e) => {
 
-    boutonsCategories.forEach(boton => boton.classList.remove("active"));
-    e.currentTarget.classList.add("active");
-  })
-})
+//     boutonsCategories.forEach(boton => boton.classList.remove("active"));
+//     e.currentTarget.classList.add("active");
+//   })
+// })
 
-//     OPen close menu responsive  //
-const openMenu = document.querySelector("#open_menu");
-const closeMenu = document.querySelector("#close_menu");
-const aside = document.querySelector("aside");
+// //     OPen close menu responsive  //
+// const openMenu = document.querySelector("#open_menu");
+// const closeMenu = document.querySelector("#close_menu");
+// const aside = document.querySelector("aside");
 
-openMenu.addEventListener("click", () => {
-  aside.classList.add("aside_visible");
-})
+// openMenu.addEventListener("click", () => {
+//   aside.classList.add("aside_visible");
+// })
 
-closeMenu.addEventListener("click", () => {
-  aside.classList.remove("aside_visible");
-})
+// closeMenu.addEventListener("click", () => {
+//   aside.classList.remove("aside_visible");
+// })
 
-boutonsCategories.forEach(boton => boton.addEventListener("click", () => {
-  aside.classList.remove("aside_visible");
-}))
+// boutonsCategories.forEach(boton => boton.addEventListener("click", () => {
+//   aside.classList.remove("aside_visible");
+// }))
 
 function chargerArticlesJson() {
   getJSON("articles.json").then((data) => {
@@ -180,7 +180,8 @@ function displayAllArticle() {
   if (isPagePanier) {
     chargerArticles();
   } else {
-    //Sinon on peut juste les rendre visible
+    //Sinon on peut juste les rendre visible et mettre à jour le titre
+    document.getElementById("titre").innerHTML = 'Tous les articles';
     document.querySelectorAll(".card-body").forEach((elem) => {
       elem.style.display = "flex";
     });

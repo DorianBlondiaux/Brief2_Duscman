@@ -9,12 +9,6 @@ body{
     
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-}
-
 main h1{
     font-family: 'Amiri';
     font-style: italic;
