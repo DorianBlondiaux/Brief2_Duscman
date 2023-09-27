@@ -1,6 +1,5 @@
 let jsonArticles;
 let idArticleIncrement = 0;
-//let listeIdArticles = [];
 let mapListeIdArticles = new Map();
 let isPagePanier = false;
 let panierHtml = `<h1>Panier</h1>
@@ -87,6 +86,7 @@ function chargerArticles() {
 }
         //    Ajoute la clase active dans le boutons de la liste du menu //
 const boutonsCategories = document.querySelectorAll(".bouton_cat");
+
 
 boutonsCategories.forEach(boton =>{
     boton.addEventListener("click", (e) => {
