@@ -96,7 +96,9 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                  <img  src="/images/${article.image}" class="img_item" alt="...">
+                  <img  src="/images/${
+                    article.image
+                  }" class="img_item" alt="...">
                     <div class="valise_contenu_card">
                       <div class="contenu_card">
                           <h5>${article.nom}</h5>
@@ -220,7 +222,9 @@ function chargerPanier() {
       .getElementById("supp")
       .insertAdjacentHTML(
         "beforeend",
-        '<p> <i class="fa-regular fa-trash-can"></i> </p>'
+        '<p> <i onclick="supprimerArticle(' +
+          key +
+          ')" class="fa-regular fa-trash-can"></i> </p>'
       );
     total += jsonArticles.articles[key].prix * value;
   });
@@ -270,6 +274,7 @@ function viderPanier() {
 }
 
 function supprimerArticle(id) {
+  console.log(mapListeIdArticles);
   if (mapListeIdArticles.has(id)) {
     const quantity = mapListeIdArticles.get(id);
     if (quantity > 1) {
