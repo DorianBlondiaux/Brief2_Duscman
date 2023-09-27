@@ -96,7 +96,7 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                  <img src="https://placehold.co/700x900" class="img_item" alt="...">
+                  <img  src="/images/${article.image}" class="img_item" alt="...">
                     <div class="valise_contenu_card">
                       <div class="contenu_card">
                           <h5>${article.nom}</h5>
