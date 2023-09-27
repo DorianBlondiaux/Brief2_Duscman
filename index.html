@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ducsman</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles2.css">
   <script src="https://kit.fontawesome.com/aaa613d165.js" crossorigin="anonymous"></script>
 </head>
 
@@ -32,39 +33,39 @@
             <button id="tous" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Tous les articles</button>
           </li>
           <li>
-            <button id="costume" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Costume</button>
+            <button onclick="displayAllArticle()" class="bouton_categorie"><i class="fa-solid fa-caret-right"></i>Tous les articles</button>
           </li>
           <li>
-            <button id="robe" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Robe</button>
+            <button id="robe" onclick="displayOneArticle('costume')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Costume</button>
           </li>
           <li>
-            <button id="chemise" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Chemise</button>
+            <button id="chemise" onclick="displayOneArticle('robe')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Robe</button>
           </li>
           <li>
-            <button id="jupe" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Jupe</button>
+            <button id="jupe" onclick="displayOneArticle('chemise')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Chemise</button>
           </li>
           <li>
-            <button id="veste" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Veste</button>
+            <button id="veste" onclick="displayOneArticle('jupe')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Jupe</button>
           </li>
           <li>
-            <button id="pantalon" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Pantalon</button>
+            <button id="pantalon" onclick="displayOneArticle('manteau')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Manteau</button>
           </li>
           <li>
-            <button id="blouse" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Blouse</button>
+            <button id="blouse" onclick="displayOneArticle('pantalon')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Pantalon</button>
           </li>
           <li>
-            <button id="manteau" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Manteau</button>
+            <button id="manteau" onclick="displayOneArticle('blouse')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Blouse</button>
           </li>
           <li>
-            <button id="cravate" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Cravate</button>
+            <button id="cravate" onclick="displayOneArticle('cravate')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Cravate</button>
           </li>
           <li>
-            <button id="chaussures" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Chaussures</button>
+            <button id="chaussures" onclick="displayOneArticle('chaussure')" class="bouton_categorie bouton_cat"><i class="fa-solid fa-caret-right"></i>Chaussures</button>
           </li>
           <li class="cont_panier">
-            <a class="bouton_categorie bouton_panier" href="">
+            <a class="bouton_categorie bouton_panier" onclick="chargerPanier()">
               <i class="fa-solid fa-cart-shopping"></i>Panier
-              <span class="compteur">0</span>
+              <span id="compteur" class="compteur">0</span>
             </a>
           </li>
         </ul>

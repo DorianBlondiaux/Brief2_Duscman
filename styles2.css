@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Italianno);
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Maitree:wght@300&family=Space+Mono&display=swap');
+
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+main h1{
+    font-family: 'Amiri';
+    font-style: italic;
+    color: #303030;
+}
+
+.articlePanier{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    color: #303030;
+    border-radius: 20px 20px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+   
+}
+
+.intitule{
+    font-family: 'Amiri';
+    font-style: italic;
+}
+
+.logoSup{
+    display: flex;
+    align-items: center;
+    color: red;
+}
+
+.viderPanier p{
+    width: 8%;
+    font-family: 'Amiri';
+    font-style: italic;
+    color: #303030;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 20px 20px;
+}
+
+.validationPanier{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    padding-left: 2%;
+    justify-content: space-between;
+    font-family: 'Amiri';
+    font-style: italic;
+    color: #303030;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 20px 20px;
+}
+
+.payerPanier{
+    padding-right: 3%;
+    padding-left: 3%;
+   border-radius: 20px 20px;
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+}
