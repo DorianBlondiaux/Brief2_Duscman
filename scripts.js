@@ -157,7 +157,7 @@ function displayAllArticle() {
 }
 
 function chargerPanier() {
-    let total = 0;
+  let total = 0;
   document.getElementById("main").innerHTML = panierHtml;
   mapListeIdArticles.forEach((value, key) => {
     document
@@ -168,17 +168,14 @@ function chargerPanier() {
       );
     document
       .getElementById("quantite")
-      .insertAdjacentHTML(
-        "beforeend",
-        "<p>" + value + "</p>"
-      );
+      .insertAdjacentHTML("beforeend", "<p>" + value + "</p>");
     document
       .getElementById("prix")
       .insertAdjacentHTML(
         "beforeend",
         "<p>" + jsonArticles.articles[key].prix + "</p>"
       );
-      document
+    document
       .getElementById("soustotal")
       .insertAdjacentHTML(
         "beforeend",
@@ -190,28 +187,35 @@ function chargerPanier() {
         "beforeend",
         '<p> <i class="fa-regular fa-trash-can"></i> </p>'
       );
-      total += jsonArticles.articles[key].prix * value;
+    total += jsonArticles.articles[key].prix * value;
   });
-  document
-      .getElementById("total")
-      .insertAdjacentHTML(
-        "beforeend",total
-      );
-      isPagePanier = true;
+  document.getElementById("total").insertAdjacentHTML("beforeend", total);
+  isPagePanier = true;
 }
 
-function ajouterArticle(id){
-    let nbOfArticles = 0;
-    
-    if(mapListeIdArticles.has(id)){
-        mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1 );
-    }else{
-        mapListeIdArticles.set(id, 1);
-    }
-    
-    mapListeIdArticles.forEach((value,key) =>{
-        console.log(value);
-        nbOfArticles += value;
-    });
-    document.getElementById('compteur').innerHTML = nbOfArticles;
+function ajouterArticle(id) {
+  let nbOfArticles = 0;
+
+  if (mapListeIdArticles.has(id)) {
+    mapListeIdArticles.set(id, mapListeIdArticles.get(id) + 1);
+  } else {
+    mapListeIdArticles.set(id, 1);
+  }
+
+  mapListeIdArticles.forEach((value, key) => {
+    console.log(value);
+    nbOfArticles += value;
+  });
+  document.getElementById("compteur").innerHTML = nbOfArticles;
+}
+
+function viderPanier() {
+  // Réinitialisez la carte du panier (panierHtml) à son état initial
+  document.getElementById("main").innerHTML = panierHtml;
+
+  // Effacez la carte du panier et réinitialisez la map des articles du panier
+  mapListeIdArticles.clear();
+
+  // Réinitialisez le compteur du panier à zéro
+  document.getElementById("compteur").innerHTML = 0;
 }
