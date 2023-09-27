@@ -96,16 +96,16 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                <img src="https://placehold.co/700x900" class="img_item" alt="...">
-                  <div class="valise_contenu_card">
-                <div class="contenu_card">
-                    <h5>${article.nom}</h5>
-                          <p class="descr_article">${article.designation}</p>
-                          <p class="prix"> ${article.prix} €</p>
-                          <p class="categorie">${article.categorie}</p>
-                          <button id="${idArticleIncrement++}" onclick="ajouterArticle(this.id)" class="btn btn-primary">Ajouter</button>
-                </div>
-            </div>
+                  <img src="https://placehold.co/700x900" class="img_item" alt="...">
+                    <div class="valise_contenu_card">
+                      <div class="contenu_card">
+                          <h5>${article.nom}</h5>
+                                <p class="descr_article">${article.designation}</p>
+                                <p class="prix"> ${article.prix} €</p>
+                                <p class="categorie">${article.categorie}</p>
+                                <button id="${idArticleIncrement++}" onclick="ajouterArticle(this.id)" class="btn btn-primary">Ajouter</button>
+                      </div>
+                    </div>
                 </div>
                 
                 `
