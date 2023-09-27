@@ -1,5 +1,4 @@
 let jsonArticles;
-let idArticleIncrement = 0;
 let mapListeIdArticles = new Map();
 let isPagePanier = false;
 let panierHtml = `<h1>Panier</h1>
@@ -50,33 +49,33 @@ let panierHtml = `<h1>Panier</h1>
 chargerArticlesJson();
 
 //    Ajoute la clase active dans le boutons de la liste du menu //
-// const boutonsCategories = document.querySelectorAll(".bouton_cat");
+const boutonsCategories = document.querySelectorAll(".bouton_cat");
 
 
-// boutonsCategories.forEach(boton => {
-//   boton.addEventListener("click", (e) => {
+boutonsCategories.forEach(boton => {
+  boton.addEventListener("click", (e) => {
 
-//     boutonsCategories.forEach(boton => boton.classList.remove("active"));
-//     e.currentTarget.classList.add("active");
-//   })
-// })
+    boutonsCategories.forEach(boton => boton.classList.remove("active"));
+    e.currentTarget.classList.add("active");
+  })
+})
 
-// //     OPen close menu responsive  //
-// const openMenu = document.querySelector("#open_menu");
-// const closeMenu = document.querySelector("#close_menu");
-// const aside = document.querySelector("aside");
+//     OPen close menu responsive  //
+const openMenu = document.querySelector("#open_menu");
+const closeMenu = document.querySelector("#close_menu");
+const aside = document.querySelector("aside");
 
-// openMenu.addEventListener("click", () => {
-//   aside.classList.add("aside_visible");
-// })
+openMenu.addEventListener("click", () => {
+  aside.classList.add("aside_visible");
+})
 
-// closeMenu.addEventListener("click", () => {
-//   aside.classList.remove("aside_visible");
-// })
+closeMenu.addEventListener("click", () => {
+  aside.classList.remove("aside_visible");
+})
 
-// boutonsCategories.forEach(boton => boton.addEventListener("click", () => {
-//   aside.classList.remove("aside_visible");
-// }))
+boutonsCategories.forEach(boton => boton.addEventListener("click", () => {
+  aside.classList.remove("aside_visible");
+}))
 
 function chargerArticlesJson() {
   getJSON("articles.json").then((data) => {
@@ -86,6 +85,7 @@ function chargerArticlesJson() {
 }
 
 function chargerArticles() {
+  let idArticleIncrement = 0;
   document.getElementById("main").innerHTML = ` 
     <h2 id="titre" class="titre_principal">Tous les articles</h2>
     <div id="card" class="valise_items"></div>
@@ -186,6 +186,7 @@ function displayAllArticle() {
       elem.style.display = "flex";
     });
   }
+  isPagePanier = false;
 }
 
 function chargerPanier() {
@@ -242,7 +243,6 @@ function ajouterArticle(id) {
   }
 
   mapListeIdArticles.forEach((value, key) => {
-    console.log(value);
     nbOfArticles += value;
   });
   document.getElementById('compteur').innerHTML = nbOfArticles;
