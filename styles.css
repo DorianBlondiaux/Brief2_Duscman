@@ -256,7 +256,9 @@ main {
     font-family: 'Amiri';
     font-style: italic;
 }
-
+.img_item{
+    background-color: white;
+}
 .header_mobile,
 .close_menu_responsive {
     display: none;
@@ -286,8 +288,7 @@ main {
     }
 
     nav,
-    aside,
-    .menu {
+    aside {
         padding-left: 0;
         margin-left: 1rem;
     }
@@ -307,8 +308,6 @@ main {
         font-size: 1rem;
         padding-left: 0;
     }
-
-
     /*---------SECTION MAIN-------*/
 
     /*---------SECTION CARD-------*/
@@ -316,11 +315,9 @@ main {
         grid-template-columns: repeat(2, 1fr);
         column-gap: 2rem;
     }
-
     .card-body {
         width: 13rem;
     }
-
     .contenu_card {
         height: 9rem;
         padding: .8rem;
@@ -338,7 +335,6 @@ main {
     .contenu_card button {
         margin-right: 5rem;
         height: 1.5rem;
-
     }
 }
 
@@ -364,6 +360,7 @@ main {
     .titre_principal {
         padding-left: 1rem;
         padding-top: 0;
+        padding-bottom: 1rem;
     }
         /*------------SECTION NAV------*/
     aside {

@@ -38,9 +38,10 @@ let panierHtml = `<h1>Panier</h1>
   <section class="totalPanier">
     <p id="total">Total:</p>
   </section>
+  
   <section class="prixPanier">
-
   </section>
+
   <section class="payerPanier">
     <p class="payerBtn">Acheter maintenant </p>
   </section>
@@ -60,23 +61,13 @@ boutonsCategories.forEach(boton => {
     e.currentTarget.classList.add("active");
   })
 })
-    boutonsCategories.forEach(boton => boton.classList.remove("active"));
-    e.currentTarget.classList.add("active");
-  })
-})
-
+   
 //     OPen close menu responsive  //
 const openMenu = document.querySelector("#open_menu");
 const closeMenu = document.querySelector("#close_menu");
 const aside = document.querySelector("aside");
 //     OPen close menu responsive  //
-const openMenu = document.querySelector("#open_menu");
-const closeMenu = document.querySelector("#close_menu");
-const aside = document.querySelector("aside");
 
-openMenu.addEventListener("click", () => {
-  aside.classList.add("aside_visible");
-})
 openMenu.addEventListener("click", () => {
   aside.classList.add("aside_visible");
 })
@@ -84,10 +75,6 @@ openMenu.addEventListener("click", () => {
 closeMenu.addEventListener("click", () => {
   aside.classList.remove("aside_visible");
 })
-closeMenu.addEventListener("click", () => {
-  aside.classList.remove("aside_visible");
-})
-
 boutonsCategories.forEach(boton => boton.addEventListener("click", () => {
   aside.classList.remove("aside_visible");
 }))
