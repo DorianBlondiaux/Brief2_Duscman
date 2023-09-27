@@ -7,22 +7,24 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 ul {
     list-style-type: none;
 }
+
 a {
     text-decoration: none;
 }
 
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    grid-template-columns: .6fr 3fr;
+    background-image: linear-gradient(to bottom, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
 }
+
 /*--------------SECTION NAV----------*/
 aside {
-    padding: 2rem;
-    padding-top: .5rem;
+    padding-left: 1rem;
     padding-right: 0;
     padding-bottom: 0;
     color: #ffffff;
@@ -33,61 +35,72 @@ aside {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.header a {
+    color: #ffffff;
+}
+
+nav {
+    padding-left: 2rem;
+    padding-bottom: 8rem;
+}
+
 .logo {
     font-family: italianno;
     font-size: 4rem;
     font-weight: 100;
-    height : 50px;    
+    height: 50px;
 }
+
 .slogan {
     font-family: 'Amiri';
     font-style: italic;
     font-size: 1.2rem;
     font-weight: 100;
 }
-.footer_nav{
-    font-family: 'Amiri';
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #5d73b0;
-    padding-left: 1rem;
-    padding-bottom: .5rem;
-}
-.menu{
+
+.menu {
     display: flex;
     flex-direction: column;
-    padding-left: 1rem;
+    padding-left: .5rem;
+    padding-top: 1rem;
 }
-nav{
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-}
-li i{
-    padding-left: .3rem;
+
+li i {
     padding-top: .3rem;
 }
 
-.bouton_categorie{
+.bouton_categorie {
     background-color: transparent;
     border: 0;
     font-family: 'Amiri';
     font-style: italic;
     color: #ffffff;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     gap: 1rem;
     padding: .2rem;
-}
-.bouton_categorie.active {
-    background-color: #ffffff;
-    color: #303030;
     width: 100%;
+}
+
+.bouton_categorie.active {
+    background-color: #FCFAF9;
+    color: #303030;
+    font-weight: 700;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     position: relative;
 }
-.bouton_categorie.active::before{
+
+.bouton_categorie.active::before {
     content: '';
     position: absolute;
     width: 1rem;
@@ -96,9 +109,10 @@ li i{
     right: 0;
     background-color: transparent;
     border-bottom-right-radius: .5rem;
-    box-shadow: 0 1rem 0 #ffffff;
+    box-shadow: 0 1rem 0 #FCFAF9;
 }
-.bouton_categorie.active::after{
+
+.bouton_categorie.active::after {
     content: '';
     position: absolute;
     width: 1rem;
@@ -107,48 +121,360 @@ li i{
     right: 0;
     background-color: transparent;
     border-top-right-radius: .5rem;
-    box-shadow: 0 -1rem 0 #ffffff;
+    box-shadow: 0 -1rem 0 #FCFAF9;
 
 }
-.bouton_panier{
-    padding-top: 3rem;
+
+.cont_panier {
+    padding-top: 4rem;
 }
-.bouton_panier_lien{
+
+.cont_panier i {
+    padding-left: 1rem;
+}
+
+.bouton_panier {
     display: flex;
     gap: .5rem;
     color: #ffffff;
     font-family: 'Amiri';
     font-style: italic;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
-.bouton_panier_lien i{
-    padding-top: .4rem;
+
+.compteur {
+    background-color: rgb(203, 4, 4);
+    color: #ffffff;
+    width: 1.5rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.footer_nav {
+    font-family: 'Amiri';
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #7380a6;
+    padding-left: 20%;
+
 }
 
 /*-----------SECTION MAIN---------*/
 
 main {
-    background-color: #ffffff;
+    background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
     margin: 1rem;
     border-radius: 2rem;
     margin-left: 0;
-    padding: 2rem;
-}
-.titre_principal{
-    color: #303030;
-    font-family: 'Amiri';
-    font-style: italic;
-    margin-bottom: 2rem;
-}
-.valise_items {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-.card-body{
-    weight:25%;
-}
-.img_item{
-    max-width: 50%;
+    padding: 1rem;
 }
 
+.titre_principal {
+    color: #303030;
+    font-family: 'Italianno';
+    font-size: 2rem;
+    padding-left: 3rem;
+    padding-top: 1rem;
+}
+
+/*---------SECTION CARD--------*/
+.valise_items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    column-gap: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    justify-items: center;
+    padding-top: 2rem;
+}
+
+.card-body {
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.img_item {
+    border-radius: 1rem;
+    max-width: 100%;
+    height: auto;
+
+}
+
+.valise_contenu_card {
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    border-radius: 1rem;
+    margin-top: -1.5rem;
+    position: relative;
+}
+
+.contenu_card {
+    margin: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 10rem;
+    justify-content: space-between;
+}
+
+.contenu_card h5,
+.prix {
+    font-family: 'Amiri';
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.descr_article {
+    font-family: 'Maitree';
+    font-size: .9rem;
+    height: 2rem;
+}
+
+.prix {
+    align-self: end;
+    padding-right: 1rem;
+}
+
+.categorie {
+    display: none;
+}
+
+.contenu_card button {
+    background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 600;
+    margin-right: 8rem;
+    border: 0;
+    height: 1.5rem;
+    border-radius: 1rem;
+    font-family: 'Amiri';
+    font-style: italic;
+}
+.header_mobile, .close_menu_responsive {
+    display: none;
+}
+
+/***        MEDIA QUERIES      ***/
+
+@media (max-width: 952px) {
+
+    .wrapper {
+        grid-template-columns: 25% 75%;
+    }
+
+    /*---------SECTION NAV-------*/
+    .header {
+        padding-left: .5rem;
+        padding-top: .5rem;
+    }
+
+    .logo {
+        font-size: 3.1rem;
+        height: 40px;
+    }
+
+    .slogan {
+        font-size: .95rem;
+    }
+
+    nav,
+    aside,
+    .menu {
+        padding-left: 0;
+        margin-left: 1rem;
+    }
+
+    nav {
+        padding-bottom: 25rem;
+        padding-top: 2rem;
+        margin-bottom: 0;
+    }
+
+    .bouton_categorie {
+        gap: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .bouton_panier {
+        font-size: 1rem;
+    }
+
+    .footer_nav {
+        padding-left: 10%;
+    }
+
+    /*---------SECTION MAIN-------*/
+
+    /*---------SECTION CARD-------*/
+    .valise_items {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+
+    .card-body {
+        width: 13rem;
+    }
+
+    .contenu_card {
+        height: 9rem;
+        padding: .8rem;
+    }
+
+    .contenu_card h5,
+    .prix {
+        font-size: 1rem;
+    }
+
+    .descr_article {
+        font-size: .7rem;
+    }
+
+    .contenu_card button {
+        margin-right: 5rem;
+        height: 1.5rem;
+
+    }
+}
+
+@media (max-width: 730px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        position: fixed;
+        width: 50%;
+        z-index: 9;
+        background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+        /*display: none;*/
+        left: 0;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
+        /*transform: translate(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.2s;*/
+    }
+    .aside_visible {
+        transform: translate(0);
+        opacity: 1;
+    }
+    .bouton_categorie.active::after,
+    .bouton_categorie.active::before {
+        display: none;
+    }
+    .header_mobile {
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        color: #ffffff;
+    }
+    .menu_responsive,
+    .close_menu_responsive {
+        margin-right: 5rem;
+        background-color: transparent;
+        color: #ffffff;
+        border: 0;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .close_menu_responsive {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+    }
+
+    /*
+    .header{
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: .2rem;
+        background-image: linear-gradient(to bottom, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    }
+    .valise_logo{
+        padding-top: 0;
+    }
+    .logo {
+        font-size: 3.1rem; 
+        height : 40px; 
+        padding-top: 0;
+    }
+    .slogan {
+        font-size: .95rem;
+    }
+    
+    .menu{
+        width: 75%;
+        height: 80vh;
+        padding-top: 50px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        top: 50px;
+        right: 0;
+        background-color: #1D1E20;
+        display: grid;
+        place-items: center;
+        visibility: hidden;
+        transition: clip-path .4s;
+        background-image: linear-gradient(to bottom, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    }
+    .footer_nav{
+        width: 75%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        top: 50px;
+
+        visibility: hidden;
+        height: 20vh;
+        transition: clip-path .4s;
+        background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+    }
+    .menu:target, .footer_nav:target {
+        clip-path: circle(150% at top left);
+    }
+    
+    aside{
+        padding: 0;
+        margin: 0;
+        height: 50px;
+    }
+    .menu_responsive{
+        display: block;
+    }
+    */
+    /*---------SECTION MAIN-------*/
+    main {
+        margin: 1rem;
+        width: 80%;
+    }
+
+    .titre_principal {
+        padding-left: 2rem;
+        padding-top: 1rem;
+    }
+
+    */
+
+    /*---------SECTION CARD-------*/
+    .valise_items {
+        column-gap: 1rem;
+        padding-top: 1rem;
+        margin: -2rem;
+    }
+
+    .card-body {
+        width: 7rem;
+    }
+}
