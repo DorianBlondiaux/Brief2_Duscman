@@ -180,7 +180,8 @@ function displayAllArticle() {
   if (isPagePanier) {
     chargerArticles();
   } else {
-    //Sinon on peut juste les rendre visible
+    //Sinon on peut juste les rendre visible et afficher le titre correspondant
+    document.getElementById("titre").innerHTML = 'Tous les articles';
     document.querySelectorAll(".card-body").forEach((elem) => {
       elem.style.display = "flex";
     });
