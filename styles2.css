@@ -2,11 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Space+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Maitree:wght@300&family=Space+Mono&display=swap');
 
-body{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 main h1{
