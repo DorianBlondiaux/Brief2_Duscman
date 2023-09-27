@@ -33,7 +33,7 @@ let panierHtml = `<h1>Panier</h1>
 </article>
 
 <div class="viderPanier">
-  <p>Vider Panier</p>
+  <p onclick="viderPanier()">Vider Panier</p>
 </div>
 
 <article class="validationPanier">
