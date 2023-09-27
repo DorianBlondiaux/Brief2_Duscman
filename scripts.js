@@ -1,5 +1,4 @@
 let jsonArticles;
-let idArticleIncrement = 0;
 let mapListeIdArticles = new Map();
 let isPagePanier = false;
 let panierHtml = `<h1>Panier</h1>
@@ -86,6 +85,7 @@ function chargerArticlesJson() {
 }
 
 function chargerArticles() {
+  let idArticleIncrement = 0;
   document.getElementById("main").innerHTML = ` 
     <h2 id="titre" class="titre_principal">Tous les articles</h2>
     <div id="card" class="valise_items"></div>
@@ -96,7 +96,7 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                  <img src="https://placehold.co/700x900" class="img_item" alt="...">
+                  <img  src="/images/${article.image}" class="img_item" alt="...">
                     <div class="valise_contenu_card">
                       <div class="contenu_card">
                           <h5>${article.nom}</h5>
@@ -188,6 +188,7 @@ function displayAllArticle() {
       elem.style.display = "flex";
     });
   }
+  isPagePanier = false;
 }
 
 function chargerPanier() {
@@ -237,7 +238,6 @@ function ajouterArticle(id) {
   }
 
   mapListeIdArticles.forEach((value, key) => {
-    console.log(value);
     nbOfArticles += value;
   });
   document.getElementById("compteur").innerHTML = nbOfArticles;
