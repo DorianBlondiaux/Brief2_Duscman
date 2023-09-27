@@ -210,12 +210,24 @@ function ajouterArticle(id) {
 }
 
 function viderPanier() {
-  // Réinitialisez la carte du panier (panierHtml) à son état initial
+  // Réinitialise la carte du panier (panierHtml) à son état initial
   document.getElementById("main").innerHTML = panierHtml;
 
-  // Effacez la carte du panier et réinitialisez la map des articles du panier
+  // Efface la carte du panier et réinitialise la map des articles du panier
   mapListeIdArticles.clear();
 
-  // Réinitialisez le compteur du panier à zéro
+  // Réinitialise le compteur du panier à zéro
   document.getElementById("compteur").innerHTML = 0;
+}
+
+function supprimerArticle(id) {
+  if (mapListeIdArticles.has(id)) {
+    const quantity = mapListeIdArticles.get(id);
+    if (quantity > 1) {
+      mapListeIdArticles.set(id, quantity - 1);
+    } else {
+      mapListeIdArticles.delete(id);
+    }
+    chargerPanier();
+  }
 }
