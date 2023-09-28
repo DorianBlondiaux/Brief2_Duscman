@@ -254,7 +254,6 @@ function chargerPanier() {
 }
 
 function ajouterArticle(id) {
-  let nbOfArticles = 0;
   let idNumeric = Number(id);
 
   if (mapListeIdArticles.has(idNumeric)) {
@@ -263,10 +262,8 @@ function ajouterArticle(id) {
     mapListeIdArticles.set(idNumeric, 1);
   }
 
-  mapListeIdArticles.forEach((value, key) => {
-    nbOfArticles += value;
-  });
-  document.getElementById("compteur").innerHTML = nbOfArticles;
+  actualiserCompteur();
+  
 }
 
 function viderPanier() {
@@ -290,6 +287,7 @@ function supprimerArticle(id) {
     }
     chargerPanier();
   }
+  actualiserCompteur();
 }
 
 function rechercher(toSearch) {
@@ -314,4 +312,12 @@ function rechercher(toSearch) {
       elem.style.display = "none";
     }
   });
+}
+
+function actualiserCompteur(){
+  let nbOfArticles = 0;
+  mapListeIdArticles.forEach((value, key) => {
+    nbOfArticles += value;
+  });
+  document.getElementById("compteur").innerHTML = nbOfArticles;
 }
