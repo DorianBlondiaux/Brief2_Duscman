@@ -81,6 +81,11 @@ boutonsCategories.forEach((boton) =>
     aside.classList.remove("aside_visible");
   })
 );
+boutonPanier.forEach((boton) =>
+  boton.addEventListener("click", () => {
+    aside.classList.remove("aside_visible");
+  })
+);
 
 function chargerArticlesJson() {
   getJSON("articles.json").then((data) => {
