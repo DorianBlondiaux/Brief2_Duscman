@@ -36,7 +36,7 @@ let panierHtml = `<h1>Panier</h1>
 
 <article class="validationPanier">
   <section class="totalPanier">
-    <p id="total">Total:</p>
+    <p id="total">Total: </p>
   </section>
   
   <section class="prixPanier">
@@ -217,7 +217,7 @@ function chargerPanier() {
       .getElementById("soustotal")
       .insertAdjacentHTML(
         "beforeend",
-        "<p>" + jsonArticles.articles[key].prix * value + "</p>"
+        "<p>" + (jsonArticles.articles[key].prix * value).toFixed(2) + "</p>"
       );
     document
       .getElementById("supp")
@@ -229,7 +229,7 @@ function chargerPanier() {
       );
     total += jsonArticles.articles[key].prix * value;
   });
-  document.getElementById("total").insertAdjacentHTML("beforeend", total);
+  document.getElementById("total").insertAdjacentHTML("beforeend", total.toFixed(2));
   isPagePanier = true;
 }
 
