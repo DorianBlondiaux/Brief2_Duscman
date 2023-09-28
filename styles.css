@@ -170,12 +170,17 @@ main {
     padding: 1rem;
 }
 
-.titre_principal {
+.titre_principal, .search {
     color: #303030;
     font-family: 'Italianno';
     font-size: 2rem;
     padding-left: 3rem;
     padding-top: 1rem;
+    max-width:50%;
+}
+
+.search{
+    float:right;
 }
 
 /*---------SECTION CARD--------*/
@@ -357,11 +362,12 @@ main {
         overflow: scroll;
     }
 
-    .titre_principal {
+    .titre_principal, .search {
         padding-left: 1rem;
         padding-top: 0;
         padding-bottom: 1rem;
     }
+
         /*------------SECTION NAV------*/
     aside {
         position: fixed;
@@ -474,5 +480,15 @@ main {
 
     .contenu_card button {
         margin-right: 3rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .search{
+        position: absolute;
+        top: 0;
+    }
+    .searchTittle{
+        position: relative;
     }
 }
