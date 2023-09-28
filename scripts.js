@@ -4,9 +4,8 @@ let isPagePanier = false;
 let panierHtml = `<h1>Panier</h1>
 
 <article class="articlePanier">
-
   <section class="imgArticle">
-
+  <p id="img_article" class="intitule" style="color: transparent;">Image</p>
   </section>
 
   <section class="titreArticle">
@@ -21,13 +20,15 @@ let panierHtml = `<h1>Panier</h1>
     <p id="prix" class="intitule">Prix</p>
 
   </section>
+
   <section class="totalArticle">
     <p id="soustotal" class="intitule">Subtotal</p>
-
   </section>
+
   <section class="logoSup">
     <p id="supp" class = "intitule">Supprimer</p>
   </section>
+
 </article>
 
 <div class="viderPanier">
@@ -36,7 +37,8 @@ let panierHtml = `<h1>Panier</h1>
 
 <article class="validationPanier">
   <section class="totalPanier">
-    <p id="total">Total:</p>
+    <p class="texte_total">Total: </p>
+    <p id="total"> </p><p class="euro">€</p>
   </section>
   
   <section class="prixPanier">
@@ -99,9 +101,7 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                  <img  src="/images/${
-                    article.image
-                  }" class="img_item" alt="...">
+                  <img  src="/images/${article.image}" class="img_item" alt="...">
                     <div class="valise_contenu_card">
                       <div class="contenu_card">
                           <h5>${article.nom}</h5>
@@ -201,6 +201,12 @@ function chargerPanier() {
   document.getElementById("main").innerHTML = panierHtml;
   mapListeIdArticles.forEach((value, key) => {
     document
+    .getElementById("img_article")
+    .insertAdjacentHTML(
+      "beforeend",
+      '<p><img class="imageResize" src="/images/' + jsonArticles.articles[key].image + '"></p>'
+    );
+    document
       .getElementById("nomArticle")
       .insertAdjacentHTML(
         "beforeend",
@@ -213,13 +219,13 @@ function chargerPanier() {
       .getElementById("prix")
       .insertAdjacentHTML(
         "beforeend",
-        "<p>" + jsonArticles.articles[key].prix + "</p>"
+        "<p>" + jsonArticles.articles[key].prix + " € </p>"
       );
     document
       .getElementById("soustotal")
       .insertAdjacentHTML(
         "beforeend",
-        "<p>" + jsonArticles.articles[key].prix * value + "</p>"
+        "<p>" + jsonArticles.articles[key].prix * value + " € </p>"
       );
     document
       .getElementById("supp")
@@ -263,10 +269,6 @@ function viderPanier() {
 }
 
 function supprimerArticle(id) {
-  mapListeIdArticles.forEach((value, key) => {
-  });
-  mapListeIdArticles.get(id);
-
   if (mapListeIdArticles.has(id)) {
     const quantity = mapListeIdArticles.get(id);
     if (quantity > 1) {
