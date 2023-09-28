@@ -101,7 +101,7 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                  <img  src="/images/${article.image}" class="img_item" alt="...">
+                  <img  src="images/${article.image}" class="img_item" alt="...">
                     <div class="valise_contenu_card">
                       <div class="contenu_card">
                           <h5>${article.nom}</h5>
@@ -225,7 +225,7 @@ function chargerPanier() {
       .getElementById("soustotal")
       .insertAdjacentHTML(
         "beforeend",
-        "<p>" + jsonArticles.articles[key].prix * value + " € </p>"
+        "<p>" + (jsonArticles.articles[key].prix * value).toFixed(2) + " € </p>"
       );
     document
       .getElementById("supp")
@@ -237,7 +237,7 @@ function chargerPanier() {
       );
     total += jsonArticles.articles[key].prix * value;
   });
-  document.getElementById("total").insertAdjacentHTML("beforeend", total);
+  document.getElementById("total").insertAdjacentHTML("beforeend", total.toFixed(2));
   isPagePanier = true;
 }
 
