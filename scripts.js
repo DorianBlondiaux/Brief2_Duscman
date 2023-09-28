@@ -99,7 +99,7 @@ function chargerArticles() {
   document.getElementById("main").innerHTML = `
     <div class="searchTittle">
       <div class="search" >
-        <input id="search" type="text" placeholder="Search..">
+        <input id="search" type="text" placeholder="Chercher...">
         <button onclick="rechercher(document.getElementById('search').value)" type="submit"><i class="fa fa-search"></i></button> 
       </div>
       <h2 id="titre" class="titre_principal">Tous les articles</h2>

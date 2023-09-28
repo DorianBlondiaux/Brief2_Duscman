@@ -181,6 +181,30 @@ main {
 
 .search{
     float:right;
+    margin-right: 5rem;
+}
+.search input{
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding: .3rem 1rem;
+    border-radius: .5rem;
+    font-family: 'Maitree';
+    color: #303030;
+    font-weight: 600;
+}
+.search button {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight:800;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #25419a;
+}
+.search button:hover{
+    background-color: #425fc0;
 }
 
 /*---------SECTION CARD--------*/
@@ -342,6 +366,13 @@ main {
         margin-right: 5rem;
         height: 1.5rem;
     }
+    .search{
+        margin-right: 1rem;
+    }
+    .search input{
+        width: 10rem;
+    }
+
 }
 
 @media (max-width: 730px) {
@@ -482,14 +513,22 @@ main {
     .contenu_card button {
         margin-right: 3rem;
     }
+
+    .titre_principal{
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .search{
+        margin-right: 0;
+        width: 100%;
+        float: right;
+        align-self: self-end;
+    }
+    .search input{
+        width: 7rem;
+    }
 }
 
 @media (max-width: 500px) {
-    .search{
-        position: absolute;
-        top: 0;
-    }
-    .searchTittle{
-        position: relative;
-    }
+    
 }
