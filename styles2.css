@@ -2,17 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Space+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Maitree:wght@300&family=Space+Mono&display=swap');
 
-body{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 main h1{
-    font-family: 'Amiri';
-    font-style: italic;
     color: #303030;
+    font-family: 'Italianno';
+    font-size: 2rem;
+    padding-left: 3rem;
+    padding-top: 1rem;
 }
 
 .articlePanier{
@@ -21,20 +22,34 @@ main h1{
     justify-content: space-around;
     width: 100%;
     color: #303030;
-    border-radius: 20px 20px;
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-   
+    border-radius: 1rem;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);   
+    margin-bottom: 2rem;
+    margin: 1rem;
+    width: 95%;
 }
 
 .intitule{
     font-family: 'Amiri';
     font-style: italic;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.intitule p{
+    font-family: 'Maitree';
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 .logoSup{
     display: flex;
     align-items: center;
     color: red;
+}
+.logoSup i{
+    font-size: 1.5rem;
 }
 
 .viderPanier p{
