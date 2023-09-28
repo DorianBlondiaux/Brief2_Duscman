@@ -53,7 +53,7 @@ chargerArticlesJson();
 
 //    Ajoute la clase active dans le boutons de la liste du menu //
 const boutonsCategories = document.querySelectorAll(".bouton_cat");
-const boutonPanier =document.querySelectorAll(".bouton_panier");
+const boutonPanier = document.querySelectorAll(".bouton_panier");
 
 boutonsCategories.forEach((boton) => {
   boton.addEventListener("click", (e) => {
@@ -107,7 +107,9 @@ function chargerArticles() {
       (article) =>
         ` 
                 <div class="card-body">
-                  <img  src="images/${article.image}" class="img_item" alt="...">
+                  <img  src="images/${
+                    article.image
+                  }" class="img_item" alt="...">
                     <div class="valise_contenu_card">
                       <div class="contenu_card">
                           <h5>${article.nom}</h5>
@@ -207,11 +209,13 @@ function chargerPanier() {
   document.getElementById("main").innerHTML = panierHtml;
   mapListeIdArticles.forEach((value, key) => {
     document
-    .getElementById("img_article")
-    .insertAdjacentHTML(
-      "beforeend",
-      '<p><img class="imageResize" src="/images/' + jsonArticles.articles[key].image + '"></p>'
-    );
+      .getElementById("img_article")
+      .insertAdjacentHTML(
+        "beforeend",
+        '<p><img class="imageResize" src="images/' +
+          jsonArticles.articles[key].image +
+          '"></p>'
+      );
     document
       .getElementById("nomArticle")
       .insertAdjacentHTML(
@@ -243,7 +247,9 @@ function chargerPanier() {
       );
     total += jsonArticles.articles[key].prix * value;
   });
-  document.getElementById("total").insertAdjacentHTML("beforeend", total.toFixed(2));
+  document
+    .getElementById("total")
+    .insertAdjacentHTML("beforeend", total.toFixed(2));
   isPagePanier = true;
 }
 
@@ -286,19 +292,21 @@ function supprimerArticle(id) {
   }
 }
 
-function rechercher(toSearch){
-
+function rechercher(toSearch) {
   //On désactive les boutons
   boutonsCategories.forEach((boton) => {
-      boutonsCategories.forEach((boton) => boton.classList.remove("active"));
+    boutonsCategories.forEach((boton) => boton.classList.remove("active"));
   });
 
-  document.getElementById("titre").innerHTML = 'Articles trouvés pour la recherche "' + toSearch + '"';
+  document.getElementById("titre").innerHTML =
+    'Articles trouvés pour la recherche "' + toSearch + '"';
 
   document.querySelectorAll(".card-body").forEach((elem) => {
     let isSearch = false;
     elem.querySelectorAll(".descr_article").forEach((elem2) => {
-      isSearch = elem2.childNodes[0].nodeValue.toUpperCase().includes(toSearch.toUpperCase());
+      isSearch = elem2.childNodes[0].nodeValue
+        .toUpperCase()
+        .includes(toSearch.toUpperCase());
     });
     if (isSearch) {
       elem.style.display = "flex";
