@@ -96,8 +96,14 @@ function chargerArticlesJson() {
 
 function chargerArticles() {
   let idArticleIncrement = 0;
-  document.getElementById("main").innerHTML = ` 
-    <h2 id="titre" class="titre_principal">Tous les articles</h2>
+  document.getElementById("main").innerHTML = `
+    <div class="searchTittle">
+      <div class="search" >
+        <input id="search" type="text" placeholder="Search..">
+        <button onclick="rechercher(document.getElementById('search').value)" type="submit"><i class="fa fa-search"></i></button> 
+      </div>
+      <h2 id="titre" class="titre_principal">Tous les articles</h2>
+    </div>
     <div id="card" class="valise_items"></div>
     
     `;
@@ -283,4 +289,26 @@ function supprimerArticle(id) {
     }
     chargerPanier();
   }
+}
+
+function rechercher(toSearch){
+
+  //On désactive les boutons
+  boutonsCategories.forEach((boton) => {
+      boutonsCategories.forEach((boton) => boton.classList.remove("active"));
+  });
+
+  document.getElementById("titre").innerHTML = 'Articles trouvés pour la recherche "' + toSearch + '"';
+
+  document.querySelectorAll(".card-body").forEach((elem) => {
+    let isSearch = false;
+    elem.querySelectorAll(".descr_article").forEach((elem2) => {
+      isSearch = elem2.childNodes[0].nodeValue.toUpperCase().includes(toSearch.toUpperCase());
+    });
+    if (isSearch) {
+      elem.style.display = "flex";
+    } else {
+      elem.style.display = "none";
+    }
+  });
 }
